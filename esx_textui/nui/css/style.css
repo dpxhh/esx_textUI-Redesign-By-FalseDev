@@ -1,0 +1,121 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* TextUI container */
+.textui-container {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%); /* Center vertically */
+    width: 320px;
+    max-width: 90vw;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align to the right */
+}
+
+/* Individual TextUI */
+.textui {
+    display: flex;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.95);
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.3s ease-out forwards;
+    width: 100%;
+}
+
+/* TextUI types */
+.textui.success {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.textui.error {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.textui.info {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+/* Inner text container */
+.textui .innerText {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Icon styling */
+.textui .icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* Message text */
+.textui .text {
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .textui-container {
+        width: 280px;
+        right: 10px;
+    }
+    .textui .text {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 2560px) {
+    .textui-container {
+        width: 400px;
+    }
+    .textui .text {
+        font-size: 16px;
+    }
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
